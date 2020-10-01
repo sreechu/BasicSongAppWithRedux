@@ -12,10 +12,15 @@ Made possible through Redux and React-Redux (has helper functions to help to com
 ![Without Redux- The App would look like](/public/withoutRedux.png)
 
 
+## With Redux, the App would have been like 
+![With Redux- The App would look like](/public/withRedux.png)
 
 
 
 
 
 
-#  All credits to Stephen Grider for beautifully explaining Redux
+
+
+###----------------------------
+###  All credits to Stephen Grider for beautifully explaining Redux with this example
