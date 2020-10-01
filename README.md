@@ -8,4 +8,14 @@ Two components Songlist displays list of songs and SongDetail shows a little mor
 
 Made possible through Redux and React-Redux (has helper functions to help to communicate efficiently with React)
 
+## Without Redux, the App would have been like 
 ![Without Redux- The App would look like](/public/withoutRedux.png)
+
+
+
+
+
+
+
+
+#  All credits to Stephen Grider for beautifully explaining Redux
