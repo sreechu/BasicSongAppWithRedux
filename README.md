@@ -49,4 +49,12 @@ Also note, the traditional Redux Action Creators now communciate through the Con
 ![React Redux detail use case](/public/react-redux-implementation-detail.png)
 As seen above, we configure connect function by telling parts of the state we want and what different actioncreators we wanna wire up. This is what enables the SongList component to have State and action creators as props!
 
+###Overall Project Structure
+/src
+  /actions - contains files related to action creators
+    /index.js - like a root file (webpack looks for it by default)  
+  /components - individual components of the song app
+  /reducers - files related to reducers
+  index.js - contains both redux and main react sides of the application  
+
 ### All credits to Stephen Grider for beautifully explaining Redux with this example
