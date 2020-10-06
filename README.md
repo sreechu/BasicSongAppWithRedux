@@ -1,4 +1,6 @@
 # A simple app to showcase power of redux
+All credits for content and images to Stephen Grider for beautifully explaining Redux with this example
+I just rephrased it to my understand :)
 
 ## Redux concept
 
