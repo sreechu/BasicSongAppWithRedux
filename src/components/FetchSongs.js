@@ -6,7 +6,7 @@ import hash from './hash';
   export const FetchSongs = () => {
 
    const [token,setToken] = useState(null);
-
+const [tracks,setTracks] = useState(null);
 
     useEffect(() => {
         // Set token
@@ -19,14 +19,16 @@ import hash from './hash';
 
         axios.get('https://api.spotify.com/v1/me/player')
             .then(res => {
-                const tracks = res.data;
+                setTracks(res.data);
                 console.log(tracks);
             });
+        } else{
+            setTracks('something went wrong');
         }
-      }, [token]);
+      }, [token,tracks]);
       return (
           <div>
-              {user}
+              {tracks}
           </div>
       )
   }
