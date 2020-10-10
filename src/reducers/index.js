@@ -1,26 +1,8 @@
 import { combineReducers } from "redux";
 //write both our reducers to be exportable
-import hash from '../components/hash';
-import axios from 'axios';
+
 //1. gets static list of songs - returns an array of object , each object representing a song
 export const songsReducer = () => {
-
-// Set token
-let _token = hash.access_token;
-if (_token) {
-  /*// Set token
-  this.setState({
-    token: _token
-  });*/
-
-  axios.get(`https://api.spotify.com/v1/me/player`)
-      .then(res => {
-        const tracks = res.data;
-        console.log(tracks);
-      });
-
-  
-}
 return [
   //fixed list for now
   { title: "No Scrubs", duration: "4:05" },
