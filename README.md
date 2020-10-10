@@ -3,14 +3,6 @@
 All credits for content and images to Stephen Grider for beautifully explaining Redux with this example
 I just rephrased it to my understanding :)
 
-## Code uses Spotify real data and needs axios package
-
-npm i axios -s
-OR
-npm install axios
-
-# Also uses https://www.npmjs.com/package/query-string query-string to Parse and stringify URL query strings
-
 ## Redux concept
 
 ActionCreator: An ActionCreator (function) creates an Action (JS Object). This Action is made of type (describes data change) and an OPTIONAL payload property (context around change to potentially make). So, the overall action triggers a potential state change.

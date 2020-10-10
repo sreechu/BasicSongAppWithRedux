@@ -1,22 +1,15 @@
 import { combineReducers } from "redux";
-
+//write both our reducers to be exportable
 
 //1. gets static list of songs - returns an array of object , each object representing a song
-export const songsReducer = (songs = null, action) => {
-  if (action.type === "SONG_FETCH") {
-    //console.log(action.payload);
-    return action.payload;
-  }
-  return songs;
-  /*
-return [
-  //fixed list for now
-  { title: "No Scrubs", duration: "4:05" },
-  { title: "Macarena", duration: "2:35" },
-  { title: "All Star", duration: "3:15" },
-  { title: "I Want It that Way", duration: "3:37" },
-];*/
-
+export const songsReducer = () => {
+  return [
+    //fixed list for now
+    { title: "No Scrubs", duration: "4:05" },
+    { title: "Macarena", duration: "2:35" },
+    { title: "All Star", duration: "3:15" },
+    { title: "I Want It that Way", duration: "3:37" },
+  ];
 };
 
 //2. Reducer for selected song - remember : action is the actionCreator's action that this reducer is taking

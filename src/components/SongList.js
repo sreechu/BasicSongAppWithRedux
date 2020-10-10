@@ -1,76 +1,33 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 //NOTE: This SongList is the component which needs the Connect component to tell the Provider to fetch the list of songs
 import { connect } from "react-redux";
 
 //also import the action creator 
-import {selectSong,songFetch} from '../actions';
-import hash from "./hash";
-import * as Constants from './constants';
+import {selectSong} from '../actions';
 
 const SongList = (props) => {
-
-  const [token,setToken] = useState(null);
-
-  useEffect(() => {
-    // Set token 
-    let _token = hash.access_token;
-    if (_token) {
-     setToken(_token);
-     //!!!!!!!! here action has to be called via props
-     props.songFetch(token);
-    }
-},[token]);
-
-let scopes = '';
-Constants.SCOPES.forEach(item => scopes += item + " " )
-
-let url = 'https://accounts.spotify.com/authorize';
-url += '?response_type=token';
-url += '&client_id=' + encodeURIComponent(Constants.CLIENT_ID);
-url += '&scope=' + encodeURIComponent(scopes.trim());
-url += '&redirect_uri=' + encodeURIComponent('http://localhost:3000');
-url += '&state=' + encodeURIComponent('123');
-
- 
-
   function renderList() {
-
-    if(!token){
-      return (<a
-        className="btn btn--loginApp-link"
-        href={url}
-        >
-        Login to Spotify
-        </a>);
-    }
-    
-    if(props && props.songs && token){
-      console.log(typeof props.songs);
-    //props.songs.map((eachSong) => console.log(eachSong));
     //takes list of songs map and return
-      return props.songs.map((eachSong) => {
-        return (
-          //create a JSX for eachSong here
-          //style clases are from semantic-ui
-          <div className="item" key={eachSong.title}>
-            <div className="right floated content">
-              <button className="ui button primary" onClick={() => {props.selectSong(eachSong)}}>Select</button>
-            </div>
-            <div className="content">{eachSong.title}</div>
+    return props.songs.map((eachSong) => {
+      return (
+        //create a JSX for eachSong here
+        //style clases are from semantic-ui
+        <div className="item" key={eachSong.title}>
+          <div className="right floated content">
+            <button className="ui button primary" onClick={() => {props.selectSong(eachSong)}}>Select</button>
           </div>
-         
-        );
-      });
-    }
-  };
-  
+          <div className="content">{eachSong.title}</div>
+        </div>
+      );
+    });
+  }
+
   return <div className="ui divided list">{renderList()}</div>;
 };
 
 //that is a conventional name use =>  mapStateToProps
 //we will take the redux store data and do some magic that eventually causes that data to show as props in our component
 const mapStateToProps = (state) => {
-  //console.log(state);
   return {
     songs: state.songs, //refer index.js of reducers to see that the key is the same
   };
@@ -80,4 +37,4 @@ const mapStateToProps = (state) => {
 //as seen in the diagram it is the connect function that asks the provider for the list of songs and then passes it down to the SongList component
 
 //connect it self takes the above defined function as the argument
-export default connect(mapStateToProps,{selectSong,songFetch})(SongList);
+export default connect(mapStateToProps,{selectSong})(SongList);

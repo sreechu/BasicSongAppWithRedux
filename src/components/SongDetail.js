@@ -6,7 +6,6 @@ with the help of connect component*/
  * for getting the selectedSong details!
  */
 
-
 import React from 'react'
 //get the connect function
 import {connect} from 'react-redux';
@@ -27,6 +26,7 @@ const SongDetail= (props) => {
 };
 
 const mapStateToProps = (state) =>{
+    console.log(state);
     //reach into the state and pull out the data we need
     return {
         selectedSong: state.selectedSong
