@@ -1,18 +1,16 @@
 import React from "react";
 import SongList from "./SongList";
 import SongDetail from "./SongDetail";
-import LoginToSpotify from './LoginToSpotify';
-import FetchSongs from './FetchSongs';
 import "./App.css";
 
 function App() {
   return (
     <div className="ui container grid grid-margin">
-      <LoginToSpotify/>
-      <FetchSongs/>
+      
+      
       SongList:
       <div className="ui container row">
-
+      
         <div className="column eight wide">
           <SongList />
          
