@@ -1,6 +1,15 @@
 # A simple app to showcase power of redux
+
 All credits for content and images to Stephen Grider for beautifully explaining Redux with this example
-I just rephrased it to my understand :)
+I just rephrased it to my understanding :)
+
+## Code uses Spotify real data and needs axios package
+
+npm i axios -s
+OR
+npm install axios
+
+# Also uses https://www.npmjs.com/package/query-string query-string to Parse and stringify URL query strings
 
 ## Redux concept
 
@@ -8,10 +17,11 @@ ActionCreator: An ActionCreator (function) creates an Action (JS Object). This A
 
 Dispatch: Dispatch takes in an action - copies that object and passes it to different places (components?) in the application. It hands it off to reducer (a function that takes in an action and some existing data) - it acts on both and returns it to a centralized location --> Central Store for data
 
-Store: You define Store by combining the reducers (capsuling them as an object) and passing it off as you create the store. 
+Store: You define Store by combining the reducers (capsuling them as an object) and passing it off as you create the store.
 Reducers keep updating and consolidating the Store!
 
 ### Redux implementation essentially means creating these 1. action creators and 2. reducers.
+
 Dispatchers: You then initialize/create a store with all the reducers (remember these are the ones that talk to the Store)
 Anytime any component can pull the state out of the Store and read and make changes to it through Dispatchers !!
 
@@ -38,16 +48,16 @@ Made possible through Redux and React-Redux (has helper functions to help to com
 import { Provider } from "react-redux"; // in the main App.js to wrap the App component
 import { connect } from "react-redux"; //inside the component that wants to interact with the store
 
-
-Remember that the component that uses connect is exported as : 
+Remember that the component that uses connect is exported as :
 export default connect(mapStateToProps)(Component-Name);
 where mapStateToProps is defined with that conventional name that takes the state (as argument) and returns that part of the state that is needed in the component
 
-### In this example it is: 
+### In this example it is:
+
 const mapStateToProps = (state) => {
-  return {
-    song: state.songs, //refer index.js of reducers to see that the key is the same
-  };
+return {
+song: state.songs, //refer index.js of reducers to see that the key is the same
+};
 };
 
 ### The react-redux package : https://react-redux.js.org/introduction/quick-start
@@ -69,10 +79,10 @@ As seen above, we configure connect function by telling parts of the state we wa
 
 ###Overall Project Structure
 /src
-  /actions - contains files related to action creators
-    /index.js - like a root file (webpack looks for it by default)  
-  /components - individual components of the song app
-  /reducers - files related to reducers
-  index.js - contains both redux and main react sides of the application  
+/actions - contains files related to action creators
+/index.js - like a root file (webpack looks for it by default)  
+ /components - individual components of the song app
+/reducers - files related to reducers
+index.js - contains both redux and main react sides of the application
 
 ### All credits to Stephen Grider for beautifully explaining Redux with this example
